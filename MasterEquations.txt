@@ -1,0 +1,3 @@
+"EyeDiameter" = 28
+"BasePlaneDistance" = 45
+"EyeClearance" = 2
