@@ -1,3 +1,5 @@
 "EyeDiameter" = 28
 "BasePlaneDistance" = 45
 "EyeClearance" = 2
+"L2Thickness" = 6
+"L2_ID" = 20
