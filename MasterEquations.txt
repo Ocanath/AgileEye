@@ -1,5 +1,5 @@
 "EyeDiameter" = 35
-"BasePlaneDistance" = 30
+"BasePlaneDistance" = "EyeDiameter"/2+19.84
 "EyeClearance" = 2
 "L2Thickness" = 8
 "L2_ID" = 20
