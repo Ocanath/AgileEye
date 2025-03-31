@@ -1,2 +1,3 @@
 1. Q1 (the joint with one link) sets the plane across which Q2 will sweep.
 	So set Q1 to lock in that plane
+2.
