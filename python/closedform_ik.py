@@ -65,7 +65,7 @@ def Hz(theta):
 
 
 vector_targ_is_normalized = False	#flag for indicating vx,vy,vz are pre-normalized (for clarity in reading the math)
-B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz, EyeDiameter = sp.symbols('"B" "Theta1" "Theta2" "Theta3" "vx" "vy" "vz" "Otx" "Oty" "Otz" "EyeDiameter"',real=True)
+B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz, EyeDiameter = sp.symbols('"B" "Theta1" "Theta2" "Theta3" ("vx") ("vy") ("vz") "Otx" "Oty" "Otz" "EyeDiameter"',real=True)
 
 
 L0_1 = Hx(-sp.pi/2)
@@ -97,38 +97,39 @@ cth1_n = sp.simplify(cth1_n)
 # sp.pretty_print(cth1_n)
 # sp.pretty_print(cth1_p)
 
-# Normalize. Not needed
-# if vector_targ_is_normalized == False:
-# 	VtNorm = VectTarg/sp.sqrt(VectTarg.dot(VectTarg))
-# else:
-# 	VtNorm = VectTarg
-
-
 
 #compute the target o2
 VectTarg = sp.Matrix([vx, vy, vz])
 theta1_arm1 = sp.atan2(vx, vz)
-RW_ref = sp.simplify(Ry(theta1_arm1))
-Rref_W = RW_ref.T
-# sp.pretty_print(sp.simplify(Rref_W))
-Vref = Rref_W*VectTarg
-print("Vref = \n")
-sp.pretty_print(Vref)
-print('------------\n')
-theta_tmpref = sp.atan2(Vref[1], Vref[2]) + sp.pi/2
-
-zr = (EyeDiameter/2)*sp.cos(theta_tmpref)
-yr = (EyeDiameter/2)*sp.sin(theta_tmpref)
+Ryth = sp.simplify(Ry(theta1_arm1))
+Rw_3_x = Ryth*sp.Matrix([-1,0,0])
+print("\"Rw_3_xx\" = " + sympy_to_solidworks(Rw_3_x[0]))
+print("\"Rw_3_xy\" = " + sympy_to_solidworks(Rw_3_x[1]))
+print("\"Rw_3_xz\" = " + sympy_to_solidworks(Rw_3_x[2]))
 
 
-O2Targ = RW_ref*sp.Matrix([0, yr, zr])
-O2Targ = sp.simplify(O2Targ)
-# sp.pretty_print(O2Targ)
+VtNorm = VectTarg/(sp.sqrt(VectTarg.dot(VectTarg)))
+Rw_3_z = VtNorm
+print("\"Rw_3_zx\" = " + sympy_to_solidworks(Rw_3_z[0]))
+print("\"Rw_3_zy\" = " + sympy_to_solidworks(Rw_3_z[1]))
+print("\"Rw_3_zz\" = " + sympy_to_solidworks(Rw_3_z[2]))
 
-exp_str = str(O2Targ[0]).replace('**', '^').replace('sqrt','sqr')
-print("\"O2Targx\" = " + exp_str)
-exp_str = str(O2Targ[1]).replace('**', '^').replace('sqrt','sqr')
-print("\"O2Targy\" = " + exp_str)
-exp_str = str(O2Targ[2]).replace('**', '^').replace('sqrt','sqr')
-print("\"O2Targz\" = " + exp_str)
+
+Rw_3_y = Rw_3_z.cross(Rw_3_x)
+Rw_3_y=sp.simplify(Rw_3_y)
+print("\"Rw_3_yx\" = " + sympy_to_solidworks(Rw_3_y[0]))
+print("\"Rw_3_yy\" = " + sympy_to_solidworks(Rw_3_y[1]))
+print("\"Rw_3_yz\" = " + sympy_to_solidworks(Rw_3_y[2]))
+
+O2Targ = -Rw_3_y*EyeDiameter/2	#eye hole is on the opposite side
+print("\"O2Targx\" = " + sympy_to_solidworks(O2Targ[0]))
+print("\"O2Targy\" = " + sympy_to_solidworks(O2Targ[1]))
+print("\"O2Targz\" = " + sympy_to_solidworks(O2Targ[2]))
+
+# exp_str = str(O2Targ[0]).replace('**', '^').replace('sqrt','sqr')
+# print("\"O2Targx\" = " + exp_str)
+# exp_str = str(O2Targ[1]).replace('**', '^').replace('sqrt','sqr')
+# print("\"O2Targy\" = " + exp_str)
+# exp_str = str(O2Targ[2]).replace('**', '^').replace('sqrt','sqr')
+# print("\"O2Targz\" = " + exp_str)
 
