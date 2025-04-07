@@ -3,9 +3,9 @@
 "EyeClearance" = 2
 "L2Thickness" = 8
 "L2_ID" = 20
-"vx" = -5
-"vy" = 3
-"vz" = 20
+"vx" = 7
+"vy" = 7
+"vz" = 10
 "parametric_end" = 1
 "Rw_3_xx" = -("vz")/sqr(("vx")^2 + ("vz")^2)
 "Rw_3_xy" = 0
@@ -19,3 +19,11 @@
 "O2Targx" = -"BasePlaneDistance"*("vx")*("vy")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
 "O2Targy" = "BasePlaneDistance"*sqr(("vx")^2 + ("vz")^2)/sqr(("vx")^2 + ("vy")^2 + ("vz")^2)
 "O2Targz" = -"BasePlaneDistance"*("vy")*("vz")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
+"Theta1" = 25.16407497
+"Theta2" = 16.57554796
+"o2_x" = -("BasePlaneDistance")*cos(("Theta1"))*cos(("Theta2"))
+"o2_y" = -("BasePlaneDistance")*sin(("Theta1"))*cos(("Theta2"))
+"o2_z" = ("BasePlaneDistance")*(sin(("Theta2")) + 1)
+"o1_x" = ("BasePlaneDistance")*sin(("Theta1"))
+"o1_y" = -("BasePlaneDistance")*cos(("Theta1"))
+"o1_z" = ("BasePlaneDistance")

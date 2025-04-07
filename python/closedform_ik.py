@@ -64,7 +64,7 @@ def Hz(theta):
 
 
 
-B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz = sp.symbols('"BasePlaneDistance" "Theta1" "Theta2" "Theta3" ("vx") ("vy") ("vz") "O2Targx" "O2Targy" "O2Targz" ',real=True)
+B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz = sp.symbols('("BasePlaneDistance") ("Theta1") ("Theta2") ("Theta3") ("vx") ("vy") ("vz") ("O2Targx") ("O2Targy") ("O2Targz") ',real=True)
 
 #compute the target o2
 """
@@ -128,27 +128,29 @@ H0_1 = Hz(Theta1)*L0_1
 H1_2 = Hz(Theta2)*L1_2
 H0_2 = H0_1*H1_2
 H0_2 = sp.simplify(H0_2)
-print("H0_2 for the actuator with two links\r\n-------------------------------------")
-sp.pretty_print(H0_2[0:3,3])
-print("---------------------------------------\n\n")
+# print("H0_2 for the actuator with two links\r\n-------------------------------------")
+# sp.pretty_print(H0_2[0:3,3])
+# print("---------------------------------------\n\n")
+
 
 eq1 = sp.Eq(H0_2[2,3], Otz)
 # sp.pretty_print(eq1)
 theta2_sols = sp.solve(eq1, Theta2)
-# print("\"theta2_s1\" = " + sympy_to_solidworks(theta2_sols[0]))
-# print("\"theta2_s2\" = " + sympy_to_solidworks(theta2_sols[0]))
-xth1 = sp.cos(theta2_sols[0])
+print("\"theta2_s1\" = " + sympy_to_solidworks(theta2_sols[0]))
+print("\"theta2_s2\" = " + sympy_to_solidworks(theta2_sols[0]))
+xth1 = sp.cos(theta2_sols[1])
 print("\"xth1\" = " + sympy_to_solidworks(xth1))
-yth1 = sp.sin(theta2_sols[0])
+yth1 = sp.sin(theta2_sols[1])
 print("\"yth1\" = " + sympy_to_solidworks(yth1))
 theta2_1 = sp.atan2(yth1, xth1)
-print("\"theta2_1\" = " + sympy_to_solidworks(theta2_1))
+# print("\"theta2_1\" = " + sympy_to_solidworks(theta2_1))
 # sp.pretty_print(theta2_sols)
 
 print("\n\n")
 
 eq2 = sp.Eq(H0_2[1,3],Oty)
 theta1_sols_y = sp.solve(eq2, Theta1)
+# xth3 = sp.cos(theta)
 # print("theta1_s1")
 # sp.pretty_print(theta1_sols_y)
 
@@ -157,8 +159,6 @@ eq3 = sp.Eq(H0_2[0,3],Otx)
 theta1_sols_x = sp.solve(eq3, Theta1)
 # print("theta1 = ")
 # sp.pretty_print(theta1_sols_x)
-
-
 
 
 #extremely promising: it appears the 'z' coordinate allows us to 
@@ -171,3 +171,16 @@ cth1_n = -sp.sqrt(1 - sth2**2)
 cth1_n = sp.simplify(cth1_n)
 
 
+
+
+
+
+print("\"Theta1\" = 0")
+print("\"Theta2\" = 0")
+print("\"o2_x\" = " + sympy_to_solidworks(H0_2[0,3]))
+print("\"o2_y\" = " + sympy_to_solidworks(H0_2[1,3]))
+print("\"o2_z\" = " + sympy_to_solidworks(H0_2[2,3]))
+print("\"o1_x\" = " + sympy_to_solidworks(H0_1[0,3]))
+print("\"o1_y\" = " + sympy_to_solidworks(H0_1[1,3]))
+print("\"o1_z\" = " + sympy_to_solidworks(H0_1[2,3]))
+print("\n\n")
