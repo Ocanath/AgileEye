@@ -40,3 +40,6 @@
 "o1_x" = ("BasePlaneDistance")*sin(("Theta1"))
 "o1_y" = -("BasePlaneDistance")*cos(("Theta1"))
 "o1_z" = ("BasePlaneDistance")
+
+"Actuator1_Theta" = atn("vx"/"vz")	'ik solution for the single link joint
+"Actuator2_Theta" = "Theta1"		'ik solution for the double link joint
