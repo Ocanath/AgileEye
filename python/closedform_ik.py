@@ -65,7 +65,7 @@ def Hz(theta):
 
 
 vector_targ_is_normalized = False	#flag for indicating vx,vy,vz are pre-normalized (for clarity in reading the math)
-B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz, EyeDiameter = sp.symbols('"B" "Theta1" "Theta2" "Theta3" ("vx") ("vy") ("vz") "Otx" "Oty" "Otz" "EyeDiameter"',real=True)
+B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz, BasePlaneDistance = sp.symbols('"B" "Theta1" "Theta2" "Theta3" ("vx") ("vy") ("vz") "Otx" "Oty" "Otz" "BasePlaneDistance" ',real=True)
 
 
 L0_1 = Hx(-sp.pi/2)
@@ -121,15 +121,9 @@ print("\"Rw_3_yx\" = " + sympy_to_solidworks(Rw_3_y[0]))
 print("\"Rw_3_yy\" = " + sympy_to_solidworks(Rw_3_y[1]))
 print("\"Rw_3_yz\" = " + sympy_to_solidworks(Rw_3_y[2]))
 
-O2Targ = -Rw_3_y*EyeDiameter/2	#eye hole is on the opposite side
+O2Targ = -Rw_3_y*BasePlaneDistance	#eye hole is on the opposite side
 print("\"O2Targx\" = " + sympy_to_solidworks(O2Targ[0]))
 print("\"O2Targy\" = " + sympy_to_solidworks(O2Targ[1]))
 print("\"O2Targz\" = " + sympy_to_solidworks(O2Targ[2]))
 
-# exp_str = str(O2Targ[0]).replace('**', '^').replace('sqrt','sqr')
-# print("\"O2Targx\" = " + exp_str)
-# exp_str = str(O2Targ[1]).replace('**', '^').replace('sqrt','sqr')
-# print("\"O2Targy\" = " + exp_str)
-# exp_str = str(O2Targ[2]).replace('**', '^').replace('sqrt','sqr')
-# print("\"O2Targz\" = " + exp_str)
 

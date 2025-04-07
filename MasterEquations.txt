@@ -3,8 +3,8 @@
 "EyeClearance" = 2
 "L2Thickness" = 8
 "L2_ID" = 20
-"vx" = -10
-"vy" = -3
+"vx" = -5
+"vy" = 3
 "vz" = 20
 "parametric_end" = 1
 "Rw_3_xx" = -("vz")/sqr(("vx")^2 + ("vz")^2)
@@ -16,6 +16,6 @@
 "Rw_3_yx" = ("vx")*("vy")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
 "Rw_3_yy" = -sqr(("vx")^2 + ("vz")^2)/sqr(("vx")^2 + ("vy")^2 + ("vz")^2)
 "Rw_3_yz" = ("vy")*("vz")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
-"O2Targx" = -"EyeDiameter"*("vx")*("vy")/(2*sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4))
-"O2Targy" = "EyeDiameter"*sqr(("vx")^2 + ("vz")^2)/(2*sqr(("vx")^2 + ("vy")^2 + ("vz")^2))
-"O2Targz" = -"EyeDiameter"*("vy")*("vz")/(2*sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4))
+"O2Targx" = -"BasePlaneDistance"*("vx")*("vy")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
+"O2Targy" = "BasePlaneDistance"*sqr(("vx")^2 + ("vz")^2)/sqr(("vx")^2 + ("vy")^2 + ("vz")^2)
+"O2Targz" = -"BasePlaneDistance"*("vy")*("vz")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
