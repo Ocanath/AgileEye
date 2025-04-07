@@ -1,6 +1,18 @@
 import sympy as sp
 from sympy_to_solidworks_str import sympy_to_solidworks
 
+"""
+Returns homogeneous transormation matrix inverse 
+"""
+def ht_inverse(H):
+	R = H[0:3,0:3]
+	R_T = R.T
+	colPos = H[0:3, 3]
+	nC = -R_T*colPos
+	rH = sp.eye(4)
+	rH[0:3,0:3] = R_T
+	rH[0:3, 3] = nC
+	return rH
 
 
 """
@@ -103,13 +115,20 @@ print("\"Rw_3_yy\" = " + sympy_to_solidworks(Rw_3_y[1]))
 print("\"Rw_3_yz\" = " + sympy_to_solidworks(Rw_3_y[2]))
 
 O2Targ = -Rw_3_y*B	#eye hole is on the opposite side
+O2Targ = sp.Matrix([O2Targ[0], O2Targ[1], O2Targ[2], 1])
 print("\"O2Targx\" = " + sympy_to_solidworks(O2Targ[0]))
 print("\"O2Targy\" = " + sympy_to_solidworks(O2Targ[1]))
 print("\"O2Targz\" = " + sympy_to_solidworks(O2Targ[2]))
 
+HW_2link0 = Hy(-sp.pi/2)*Hz(-sp.pi/2)
+HW_2link0[0,3] = B	#can also pre-multiply by identity rotation with xyz vector for the same effect
+H2link0_W = ht_inverse(HW_2link0)
+O2Targ_0 = H2link0_W*O2Targ	#o2 targ is in the world, we need to transform it to our origin target frame
+print("\"O2Targx_0\" = " + sympy_to_solidworks(O2Targ_0[0]))
+print("\"O2Targy_0\" = " + sympy_to_solidworks(O2Targ_0[1]))
+print("\"O2Targz_0\" = " + sympy_to_solidworks(O2Targ_0[2]))
 
 print("-----------------------------------------------------------------------------------END\n\n")
-
 
 
 

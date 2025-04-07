@@ -19,6 +19,9 @@
 "O2Targx" = -"BasePlaneDistance"*("vx")*("vy")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
 "O2Targy" = "BasePlaneDistance"*sqr(("vx")^2 + ("vz")^2)/sqr(("vx")^2 + ("vy")^2 + ("vz")^2)
 "O2Targz" = -"BasePlaneDistance"*("vy")*("vz")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
+"O2Targx_0" = -("BasePlaneDistance")*sqr(("vx")^2 + ("vz")^2)/sqr(("vx")^2 + ("vy")^2 + ("vz")^2)
+"O2Targy_0" = -("BasePlaneDistance")*("vy")*("vz")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
+"O2Targz_0" = ("BasePlaneDistance")*("vx")*("vy")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4) + ("BasePlaneDistance")
 "Theta1" = 25.16407497
 "Theta2" = 16.57554796
 "o2_x" = -("BasePlaneDistance")*cos(("Theta1"))*cos(("Theta2"))
