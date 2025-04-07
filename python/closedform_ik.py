@@ -76,7 +76,7 @@ def Hz(theta):
 
 
 
-B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz = sp.symbols('("BasePlaneDistance") ("Theta1") ("Theta2") ("Theta3") ("vx") ("vy") ("vz") ("O2Targx") ("O2Targy") ("O2Targz") ',real=True)
+B, Theta1, Theta2, Theta3, vx, vy, vz, Otx, Oty, Otz = sp.symbols('("BasePlaneDistance") ("Theta1") ("Theta2") ("Theta3") ("vx") ("vy") ("vz") ("O2Targx_0") ("O2Targy_0") ("O2Targz_0") ',real=True)
 
 #compute the target o2
 """
@@ -151,31 +151,30 @@ H0_2 = sp.simplify(H0_2)
 # sp.pretty_print(H0_2[0:3,3])
 # print("---------------------------------------\n\n")
 
-
+print("Closed form inverse kinematic solutions for theta2 of the two link arm. Generally speaking, our robot should always have solution 2")
 eq1 = sp.Eq(H0_2[2,3], Otz)
 # sp.pretty_print(eq1)
 theta2_sols = sp.solve(eq1, Theta2)
 print("\"theta2_s1\" = " + sympy_to_solidworks(theta2_sols[0]))
-print("\"theta2_s2\" = " + sympy_to_solidworks(theta2_sols[0]))
-xth1 = sp.cos(theta2_sols[1])
-print("\"xth1\" = " + sympy_to_solidworks(xth1))
-yth1 = sp.sin(theta2_sols[1])
-print("\"yth1\" = " + sympy_to_solidworks(yth1))
-theta2_1 = sp.atan2(yth1, xth1)
+print("\"theta2_s2\" = " + sympy_to_solidworks(theta2_sols[1]))
 # print("\"theta2_1\" = " + sympy_to_solidworks(theta2_1))
 # sp.pretty_print(theta2_sols)
 
 print("\n\n")
 
+
+print("Closed form inverse kinematics for theta1 of the two link arm. So far, solutions 2 and 4 are equal, and always correct for our robot. Sols 1 and 3 disagree")
 eq2 = sp.Eq(H0_2[1,3],Oty)
 theta1_sols_y = sp.solve(eq2, Theta1)
-# xth3 = sp.cos(theta)
-# print("theta1_s1")
-# sp.pretty_print(theta1_sols_y)
-
+print("\"theta1_s1\" = " + sympy_to_solidworks(theta1_sols_y[0]))
+print("\"theta1_s2\" = " + sympy_to_solidworks(theta1_sols_y[1]))
 
 eq3 = sp.Eq(H0_2[0,3],Otx)
 theta1_sols_x = sp.solve(eq3, Theta1)
+print("\"theta1_s3\" = " + sympy_to_solidworks(theta1_sols_x[0]))
+print("\"theta1_s4\" = " + sympy_to_solidworks(theta1_sols_x[1]))
+print("\n\n")
+
 # print("theta1 = ")
 # sp.pretty_print(theta1_sols_x)
 

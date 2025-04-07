@@ -22,8 +22,18 @@
 "O2Targx_0" = -("BasePlaneDistance")*sqr(("vx")^2 + ("vz")^2)/sqr(("vx")^2 + ("vy")^2 + ("vz")^2)
 "O2Targy_0" = -("BasePlaneDistance")*("vy")*("vz")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4)
 "O2Targz_0" = ("BasePlaneDistance")*("vx")*("vy")/sqr(("vx")^4 + ("vx")^2*("vy")^2 + 2*("vx")^2*("vz")^2 + ("vy")^2*("vz")^2 + ("vz")^4) + ("BasePlaneDistance")
-"Theta1" = 25.16407497
-"Theta2" = 16.57554796
+
+
+"theta2_s1" = arcsin((("BasePlaneDistance") - ("O2Targz_0"))/("BasePlaneDistance")) + pi
+"theta2_s2" = -arcsin((("BasePlaneDistance") - ("O2Targz_0"))/("BasePlaneDistance"))
+
+"theta1_s1" = arcsin(("O2Targy_0")/(("BasePlaneDistance")*cos(("Theta2")))) + pi
+"theta1_s2" = -arcsin(("O2Targy_0")/(("BasePlaneDistance")*cos(("Theta2"))))
+"theta1_s3" = -arccos(-("O2Targx_0")/(("BasePlaneDistance")*cos(("Theta2")))) + 2*pi
+"theta1_s4" = arccos(-("O2Targx_0")/(("BasePlaneDistance")*cos(("Theta2"))))
+
+"Theta1" = "theta1_s2" 'so far, theta1_s1 and theta1_s4 have agreed, and they agree with the sw constraint solver
+"Theta2" = "theta2_s2"
 "o2_x" = -("BasePlaneDistance")*cos(("Theta1"))*cos(("Theta2"))
 "o2_y" = -("BasePlaneDistance")*sin(("Theta1"))*cos(("Theta2"))
 "o2_z" = ("BasePlaneDistance")*(sin(("Theta2")) + 1)
