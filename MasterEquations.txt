@@ -3,8 +3,8 @@
 "EyeClearance" = 2
 "L2Thickness" = 8
 "L2_ID" = 20
-"vx" = -3
-"vy" = 3
+"vx" = 0
+"vy" = 0
 "vz" = 10
 "parametric_end" = 1
 "Rw_3_xx" = -("vz")/sqr(("vx")^2 + ("vz")^2)
