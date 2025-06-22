@@ -1,0 +1,17 @@
+﻿"RotorMainLength"= 41'rotor body longest dimension
+"OverallLength"= 65.8'The height of the whole motor, not counting shaft protrusions
+"RotorDiameter"= 63'Overall rotor diameter
+"RotorTopCapHeight"= 14'Rough measurement/eyeballed. Not super critical for this; most important dim is overall length
+"RotorLargeHoleDiameter"= 17'ID measurement with calipers
+"RotorLargeHoleTangentSpacing"= 19'tangent to tangent on the large holes. add one diameter to achieve the center distances
+"RotorLargeHoleCenterDistance"= "RotorLargeHoleTangentSpacing" + "RotorLargeHoleDiameter"'Center to center spacing for large hole
+"RotorSmallHoleID"= 8'ID measurement with calipers
+"RotorSmallHoleTangentSpacing"= 37'Tangent to Tangent (rounded to the nearest integer, real measurement was like 0.03mm off)
+"RotorSmallHoleCenterDistance"= "RotorSmallHoleID" + "RotorSmallHoleTangentSpacing"'Center to center spacing for small holes
+"ShaftDiameter"= 8
+"RotorShaftTopCapDiameter"= 18'the small circular extrusion at the top of the rotor
+"RotorShaftTopCapHeight"= 2'Height of the small cylindircal extrusion at the top of the rotor
+"RotorBoltCircleFlatDiameter"= 30'Diameter of the flat portion where the bolt circle is drilled in the rotor
+"RotorTaperedEdgeHeight"= 7'approximate, vertical distance of the tapered/angled edge of the rotor
+"RotorBoltCircleCenterDistance"= 23mm'rounded, hard to measure with calipers so assuming they aren't fucking insane and chose this
+"StatorTrayHeight"= 3+6+6	'Rough measurement/eyeballed. Not super critical. Take up clearance in airgap; maintain overall height
