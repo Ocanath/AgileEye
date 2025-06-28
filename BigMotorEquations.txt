@@ -14,4 +14,4 @@
 "RotorBoltCircleFlatDiameter"= 30'Diameter of the flat portion where the bolt circle is drilled in the rotor
 "RotorTaperedEdgeHeight"= 7'approximate, vertical distance of the tapered/angled edge of the rotor
 "RotorBoltCircleCenterDistance"= 23mm'rounded, hard to measure with calipers so assuming they aren't fucking insane and chose this
-"StatorTrayHeight"= 3+6+6	'Rough measurement/eyeballed. Not super critical. Take up clearance in airgap; maintain overall height
+"StatorTrayHeight"= 3+6+6	'Rough measurement/eyeballed. Not super critical. Take up clearance in airgap; maintain overall height"StatorBaseOD" = 54.00		'OD of the base of the stator where the bolt circle is

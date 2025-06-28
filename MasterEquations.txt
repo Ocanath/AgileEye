@@ -1,4 +1,4 @@
-"EyeDiameter" = 155
+"EyeDiameter" = 100
 "BasePlaneDistance" = "EyeDiameter"/2+"L2Thickness"+"EyeClearance"
 "EyeClearance" = 2
 "L2Thickness" = 15
@@ -43,3 +43,12 @@
 
 "Actuator1_Theta" = atn("vx"/"vz")	'ik solution for the single link joint
 "Actuator2_Theta" = "Theta1"		'ik solution for the double link joint
+
+"MotorBaseThickness" = 25	
+"BaseThickness" = 30		
+
+"EncoderToMagnetAirgap" = 1	'Encoder to magnet airgap
+"EncoderHeight" = 1.192		'Height of the encoder
+"MagnetThickness" = 0.5		'Magnet thickness
+"pcb_thickness" = 1.6		'Thickness of the PCB
+"pcb_outer_diameter" = 32	'the OD of the pcb
