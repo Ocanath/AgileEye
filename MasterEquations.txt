@@ -44,8 +44,8 @@
 "Actuator1_Theta" = atn("vx"/"vz")	'ik solution for the single link joint
 "Actuator2_Theta" = "Theta1"		'ik solution for the double link joint
 
-"MotorBaseThickness" = 25	
-"BaseThickness" = 30		
+"MotorBaseThickness" = 3	
+"BaseThickness" = 3	
 
 "EncoderToMagnetAirgap" = 1	'Encoder to magnet airgap
 "EncoderHeight" = 1.192		'Height of the encoder
