@@ -52,3 +52,5 @@
 "MagnetThickness" = 0.5		'Magnet thickness
 "pcb_thickness" = 1.6		'Thickness of the PCB
 "pcb_outer_diameter" = 32	'the OD of the pcb
+
+"shaft_diameter" = 4
