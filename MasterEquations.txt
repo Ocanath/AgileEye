@@ -3,9 +3,9 @@
 "EyeClearance" = 2
 
 "L2_ID" = 20
-"vx" = 50
-"vy" = 10
-"vz" = 100
+"vx" = 0
+"vy" = 0
+"vz" = 200
 "parametric_end" = 1
 "Rw_3_xx" = -("vz")/sqr(("vx")^2 + ("vz")^2)
 "Rw_3_xy" = 0
