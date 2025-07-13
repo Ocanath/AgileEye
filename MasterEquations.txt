@@ -1,10 +1,10 @@
-"EyeDiameter" = 100
+"EyeDiameter" = 99.60916292
 "BasePlaneDistance" = "EyeDiameter"/2+"L2Thickness"+"EyeClearance"
 "EyeClearance" = 2
 
 "L2_ID" = 20
-"vx" = 0
-"vy" = 0
+"vx" = 50
+"vy" = 10
 "vz" = 100
 "parametric_end" = 1
 "Rw_3_xx" = -("vz")/sqr(("vx")^2 + ("vz")^2)
